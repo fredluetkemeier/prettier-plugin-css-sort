@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/fredluetkemeier/prettier-plugin-css-sort#readme",
     "devDependencies": {
+        "dedent-tabs": "^0.10.1",
         "jest": "^27.5.1",
         "prettier": "^2.6.2"
     },

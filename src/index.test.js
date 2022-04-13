@@ -1,25 +1,98 @@
 const prettier = require("prettier");
+const dedent = require("dedent-tabs").default;
+
+const prettierOpts = { parser: "scss", plugins: ["."], tabWidth: 4 };
+
+prettier.resolveConfig();
 
 test("Sorts simple CSS", () => {
     expect(
-        prettier.format(".test {height: 10px; font-size: 14px;}", {
-            parser: "css",
-            plugins: ["."],
-        })
-    ).toBe(".test {\n  font-size: 14px;\n  height: 10px;\n}\n");
+        prettier.format(
+            `.test {
+                height: 10px; 
+                font-size: 14px;
+            }`,
+            prettierOpts
+        )
+    ).toBe(
+        dedent`
+            .test {
+                font-size: 14px;
+                height: 10px;
+            }\n`
+    );
 });
 
 test("Sorts simple SCSS", () => {
     expect(
         prettier.format(
-            "a{margin-left: -#{$grid-default-gutter / 2}; height: 1rem;}",
-            {
-                parser: "scss",
-                plugins: ["."],
-            }
+            `a {
+                margin-left: -#{$grid-default-gutter / 2}; 
+                height: 1rem;
+            }`,
+            prettierOpts
         )
     ).toBe(
-        "a {\n  height: 1rem;\n  margin-left: -#{$grid-default-gutter / 2};\n}\n",
-        "sorts given SCSS"
+        dedent`
+            a {
+                height: 1rem;
+                margin-left: -#{$grid-default-gutter / 2};
+            }\n`
+    );
+});
+
+test("Sorts SCSS with variables", () => {
+    expect(
+        prettier.format(
+            `.test {
+                grid-template-columns: 277px 277px;
+                margin-top: $s;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+                display: grid;
+                grid-row: auto auto;
+            }`,
+            prettierOpts
+        )
+    ).toBe(
+        dedent`
+            .test {
+                display: grid;
+                grid-column-gap: 20px;
+                grid-row: auto auto;
+                grid-row-gap: 20px;
+                grid-template-columns: 277px 277px;
+                margin-top: $s;
+            }\n`
+    );
+});
+
+test("Sorts SCSS with import statements", () => {
+    expect(
+        prettier.format(
+            `.card {
+                background: $base;
+                display: inline-block;
+                @include shadow-level(1);
+                margin-bottom: $m;
+                padding: $m;
+                @include transition(all 250ms);
+                vertical-align: top;
+                width: 100%;
+            }`,
+            prettierOpts
+        )
+    ).toBe(
+        dedent`
+            .card {
+                background: $base;
+                display: inline-block;
+                margin-bottom: $m;
+                padding: $m;
+                vertical-align: top;
+                width: 100%;
+                @include shadow-level(1);
+                @include transition(all 250ms);
+            }\n`
     );
 });

@@ -3,12 +3,12 @@ const postcss = require("postcss");
 const postcssScss = require("postcss-scss");
 const sorting = require("postcss-sorting");
 
-const preprocess = (text, options) => {
+const preprocess = (text, _options) => {
     const result = postcss([
         sorting({ "properties-order": "alphabetical" }),
     ]).process(text, {
         from: undefined,
-        syntax: options.parser === "scss" && postcssScss,
+        syntax: postcssScss,
     });
 
     return result.css;
@@ -16,14 +16,6 @@ const preprocess = (text, options) => {
 
 module.exports = {
     parsers: {
-        css: {
-            ...prettier.parsers.css,
-            preprocess,
-        },
-        less: {
-            ...prettier.parsers.less,
-            preprocess,
-        },
         scss: {
             ...prettier.parsers.scss,
             preprocess,
