@@ -1,28 +1,28 @@
 {
-  "name": "prettier-plugin-css-sort",
-  "version": "0.1.0",
-  "description": "A Prettier plugin to sort CSS and SCSS",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fredluetkemeier/prettier-plugin-css-sort.git"
-  },
-  "author": "Fred Luetkemeier",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fredluetkemeier/prettier-plugin-css-sort/issues"
-  },
-  "homepage": "https://github.com/fredluetkemeier/prettier-plugin-css-sort#readme",
-  "devDependencies": {
-    "jest": "^27.5.1",
-    "prettier": "^2.6.2"
-  },
-  "dependencies": {
-    "postcss": "^8.4.12",
-    "postcss-scss": "^4.0.3",
-    "postcss-sorting": "^7.0.1"
-  }
+    "name": "prettier-plugin-css-sorter",
+    "version": "0.1.0",
+    "description": "A Prettier plugin to sort CSS and SCSS",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fredluetkemeier/prettier-plugin-css-sort.git"
+    },
+    "author": "Fred Luetkemeier",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/fredluetkemeier/prettier-plugin-css-sort/issues"
+    },
+    "homepage": "https://github.com/fredluetkemeier/prettier-plugin-css-sort#readme",
+    "devDependencies": {
+        "jest": "^27.5.1",
+        "prettier": "^2.6.2"
+    },
+    "dependencies": {
+        "postcss": "^8.4.12",
+        "postcss-scss": "^4.0.3",
+        "postcss-sorting": "^7.0.1"
+    }
 }
