@@ -28,5 +28,8 @@
         "postcss": "^8.4.12",
         "postcss-scss": "^4.0.3",
         "postcss-sorting": "^7.0.1"
+    },
+    "peerDependencies": {
+        "prettier": "2.x"
     }
 }
