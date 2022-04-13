@@ -5,7 +5,10 @@ const sorting = require("postcss-sorting");
 
 const preprocess = (text, _options) => {
     const result = postcss([
-        sorting({ "properties-order": "alphabetical" }),
+        sorting({
+            order: [{ type: "at-rule", name: "include" }],
+            "properties-order": "alphabetical",
+        }),
     ]).process(text, {
         from: undefined,
         syntax: postcssScss,
