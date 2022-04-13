@@ -3,8 +3,6 @@ const dedent = require("dedent-tabs").default;
 
 const prettierOpts = { parser: "scss", plugins: ["."], tabWidth: 4 };
 
-prettier.resolveConfig();
-
 test("Sorts regular CSS properties", () => {
     expect(
         prettier.format(
